@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Calculator</title>
+</head>
+<body>
+    <form onsubmit="calculate()">
+        <label for="fees">Fees and Amount financed</label>
+        <input type="number" name="fees" id="fees" value="10000">
+        <br>
+
+        <label for="interest">Interest-Rate in percentage</label>
+        <input type="number" name="interest" id="interest" value="2">
+        <br>
+
+        <label for="duration">Duration of payments</label>
+        <input type="number" name="duration" id="duration" value="5">
+        <br>
+        <select name="period" id="period">
+            <option value="day">Days</option>
+            <option value="month">Months</option>
+            <option value="year">Years</option>
+        </select>
+
+
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+<script>
+    function calculate(){
+
+        //get value for fees
+        let fees = document.querySelector("#fees").value;
+        
+        //get value for interest
+        let interest = (document.querySelector("#interest").value / 100).toFixed(2);
+
+        //get value for duration
+        let time = document.querySelector("#duration").value*365;
+
+        //get value for period
+        let period = document.querySelector("#period").value;
+
+        //calculate amount of interest based on input
+
+        let amount = 0;
+        switch(period){
+            case "day":
+                amount = ((fees*interest*time).toFixed(2));
+                alert("Amount of interest will be: " + amount + " per day.");
+                break;
+            
+            case "month":
+                amount = ((fees*interest)*(time*12)).toFixed(2);
+                alert("Amount of interest will be: " + amount + " per month.");
+                break;
+
+            case "year":
+                amount = (fees*interest*time).toFixed(2);
+                alert("Amount of interest will be: " + amount + " per year.");
+                break;
+
+            default:
+                alert("Cannot compute");
+
+
+    
+    }
+
+        
+
+    }
+</script>
+</html>
