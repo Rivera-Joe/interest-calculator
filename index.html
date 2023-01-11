@@ -50,21 +50,25 @@
 
         let amount = 0;
         switch(period){
+            //if "day" is selected
             case "day":
                 amount = (((fees*interest*time).toFixed(2))/365).toFixed(2);
                 alert("Amount of interest will be: " + amount + " per day.");
                 break;
-            
+
+            //if "month" is selected
             case "month":
                 amount = ((fees*interest*time)/12).toFixed(2);
                 alert("Amount of interest will be: " + amount + " per month.");
                 break;
 
+            //if "year" is selected
             case "year":
                 amount = (fees*interest*time).toFixed(2);
                 alert("Amount of interest will be: " + amount + " per year.");
                 break;
 
+            //if anything unexpected is done or selected
             default:
                 alert("Cannot compute");
 
