@@ -7,6 +7,7 @@
     <title>Interest Calculator</title>
 </head>
 <body>
+    <!--Simple Interest Calculator to determine interest gained over a period of time-->
     <form onsubmit="calculate()">
         <label for="fees">Fees and Amount financed</label>
         <input type="number" name="fees" id="fees" value="10000">
@@ -40,7 +41,7 @@
         let interest = (document.querySelector("#interest").value / 100).toFixed(2);
 
         //get value for duration
-        let time = document.querySelector("#duration").value*365;
+        let time = document.querySelector("#duration").value;
 
         //get value for period
         let period = document.querySelector("#period").value;
@@ -50,12 +51,12 @@
         let amount = 0;
         switch(period){
             case "day":
-                amount = ((fees*interest*time).toFixed(2));
+                amount = (((fees*interest*time).toFixed(2))/365).toFixed(2);
                 alert("Amount of interest will be: " + amount + " per day.");
                 break;
             
             case "month":
-                amount = ((fees*interest)*(time*12)).toFixed(2);
+                amount = ((fees*interest*time)/12).toFixed(2);
                 alert("Amount of interest will be: " + amount + " per month.");
                 break;
 
